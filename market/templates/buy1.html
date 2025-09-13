@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body{
+        width: 100%;
+    }
+    /* Logo text */
+    .navbar-brand {
+      font-family: "Poppins", sans-serif;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .navbar-brand span {
+      color: #1e3c72; /* Blue for RP */
+    }
+    .navbar-brand {
+      text-shadow: 2px 2px 6px rgba(0, 255, 255, 0.6);
+    }
+
+    /* Navbar links */
+    .nav-link {
+      font-weight: 600;
+      font-size: 18px;
+      color: #0f2a40 !important;
+    }
+    .nav-link.active {
+      color: #40bfbf !important;
+    }
+
+    /* Login button */
+    .btn-login {
+      background-color: #2c4c63;
+      color: white;
+      border-radius: 25px;
+      padding: 8px 25px;
+      font-weight: 600;
+    }
+    .btn-login:hover {
+      background-color: #193549;
+    }
+
+    /* Search icon */
+    .search-icon {
+      font-size: 22px;
+      color: #0f2a40;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+    .bike-card {
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      
+      border-style: solid;
+      border-color: #0f2a40;
+    }
+    .bike-img {
+      background: url('image 83.png') center/cover no-repeat;
+      height: 550px;
+      position: relative;
+    }
+    .bike-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.2);
+    }
+    .details {
+      padding: 25px;
+      height: 750px;
+      font-size: 30px;
+    }
+    .btn-custom {
+      background: linear-gradient(to right, #1e90ff, #0072ff);
+      border: none;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background: linear-gradient(to right, #0072ff, #1e90ff);
+    }
+    .thumbnail-images img {
+      border-radius: 10px;
+      margin: 5px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .thumbnail-images img:hover {
+      transform: scale(1.05);
+    }
+     .overview-card {
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .overview-header {
+      font-weight: 700;
+      font-size: 1.5rem;
+      padding: 20px 20px 10px;
+    }
+
+    .overview-section {
+      background-color: #e0e0e0;
+      padding: 20px;
+    }
+
+    .overview-section h6 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .overview-section p {
+      font-weight: 500;
+      color: #145DA0;
+      margin-bottom: 15px;
+    }
+
+    .border-right {
+      border-right: 1px solid #ccc;
+    }
+     .steps-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .step img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .arrow {
+      font-size: 2.5rem;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 767px) {
+      .arrow {
+        transform: rotate(90deg);
+        margin: 10px 0;
+      }
+    }
+    .spec-card {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+    }
+
+    .spec-title {
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .spec-label {
+      font-weight: 600;
+      color: #000;
+    }
+
+    .spec-value {
+      color: #1e3d59;
+      font-weight: 500;
+    }
+
+    @media (max-width: 576px) {
+      .spec-label, .spec-value {
+        font-size: 0.95rem;
+      }
+    }
+    .footer {
+      background-color: #19445a;
+      color: #fff;
+      padding: 50px 20px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      height: 450px;
+    }
+    .footer h5 {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+    .footer ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer ul li a:hover {
+      color: #1abc9c;
+    }
+    .footer .social-icons a {
+      font-size: 28px;
+      margin-right: 15px;
+      color: #fff;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .footer .social-icons a:hover {
+      color: #1abc9c;
+      transform: scale(1.2);
+    }
+    .footer-logo {
+      font-size: 36px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      margin-bottom: 15px;
+    }
+    .footer .bike-img {
+      max-width: 250px;
+      height: 200px;
+    }
+    </style>
+</head>
+<body>
+     <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+        <img src="logo.jpg">
+    </a>
+
+    <!-- Navbar toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu items -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'market:index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:buy_list' %}">Buy Bike</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:sell_bike' %}">Sell Bike</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:about' %}">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:contact' %}">Contact Us</a>
+        </li>
+      </ul>
+
+      <!-- Login button + Search -->
+      <div class="d-flex align-items-center">
+        <a href="{% url 'market:login' %}" class="btn btn-login me-2">Login</a>
+        <i class="bi bi-search search-icon"></i>
+      </div>
+    </div>
+  </div>
+</nav>
+
+ <div class="container py-5">
+    <div class="row g-4 align-items-center">
+      <!-- Left Side: Bike Image -->
+      <div class="col-md-7">
+        <div class="bike-card">
+          <div class="bike-img d-flex align-items-center justify-content-center">
+            <img src="png-clipart-suzuki-gixxer-sf-scooter-suzuki-access-125-electric-motorcycle-scooter-car-thumbnail-removebg-preview.png" alt="Bike" class="img-fluid position-relative" style="z-index:1;max-height:300px;">
+          </div>
+        </div>
+        <!-- Thumbnails -->
+        <div class="d-flex justify-content-center thumbnail-images mt-3 flex-wrap">
+          <img src="images (2).jfif" width="120">
+          <img src="images (1).jfif" width="120">
+          <img src="images (3).jfif" width="120">
+          <img src="images.jfif" width="120">
+          <img src="image 88.png" width="100">
+          <img src="images.jfif" width="100">
+        </div>
+      </div>
+      
+      <!-- Right Side: Details -->
+      <div class="col-md-5">
+        <div class="bike-card details">
+          <h4 class="fw-bold">2013 | Suzuki Access</h4><br>
+          <p class="text-muted mb-1">2600Km • 3rd Owner</p><br>
+          <p><i class="bi bi-geo-alt-fill text-primary"></i> <strong>Kanchipuram</strong></p><br>
+          <button style="font-size: 30px;" class="btn btn-custom w-100 mb-3" onclick="bookTestRide()"><br>
+            Book Test Ride <br>
+            <small>(₹1000/- Refundable for Next Three Days)</small>
+          </button><br>
+          <p class="mb-2">Interested in Buying this Bike?</p><br>
+          <a href="{% url 'market:pay' bike.id %}"><button style="font-size: 20px;" class="btn btn-dark w-100">Buy Now</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function bookTestRide() {
+      alert("Test ride booked! Refundable ₹1000 deposit confirmed.");
+    }
+  </script>
+
+<div class="container">
+  <div class="card overview-card">
+    <div class="overview-header">Bike OverView</div>
+    <div class="row g-0">
+      <!-- Left Section -->
+      <div class="col-md-6 overview-section border-right">
+        <h6>Bike Brand</h6>
+        <p>Susuki</p>
+
+        <h6>Bike Model</h6>
+        <p>Access</p>
+
+        <h6>Bike Varient</h6>
+        <p>125CC</p>
+
+        <h6>Make Year</h6>
+        <p>2013</p>
+
+        <h6>Refurbished</h6>
+        <p>Yes</p>
+
+        <h6>RTO State</h6>
+        <p>Maharashtra</p>
+
+        <h6>RTO City</h6>
+        <p>Pune</p>
+
+        <h6>Registration Year</h6>
+        <p>-</p>
+      </div>
+
+      <!-- Right Section -->
+      <div class="col-md-6 overview-section">
+        <h6>Kilometers</h6>
+        <p>26000Km</p>
+
+        <h6>Owners</h6>
+        <p>3rd Owner</p>
+
+        <h6>Transmission</h6>
+        <p>Auto</p>
+
+        <h6>Fuel Type</h6>
+        <p>Petrol</p>
+
+        <h6>Registration Certificate</h6>
+        <p>Yes</p>
+
+        <h6>Finance</h6>
+        <p>No</p>
+
+        <h6>Insurance</h6>
+        <p>Yes</p>
+
+        <h6>Warrenty</h6>
+        <p>No</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="container steps-container">
+    <h3 class="mb-5">Book This Bike in 3 Easy Steps</h3>
+    
+    <div class="row align-items-center justify-content-center">
+      <!-- Step 1 -->
+      <div class="col-12 col-md-3 step">
+        <img src="1by1.jpg" alt="Choose Bike">
+        <div class="step-title">Choose Your Bike</div>
+      </div>
+
+      <!-- Arrow -->
+      <div class="col-12 col-md-1 arrow d-none d-md-flex">
+        →
+      </div>
+
+      <!-- Step 2 -->
+      <div class="col-12 col-md-3 step">
+        <img src="a-man-standing-next-to-a-motorcycle-vector.jpg" alt="Test Ride">
+        <div class="step-title">Book & Take Test ride</div>
+      </div>
+
+      <!-- Arrow -->
+      <div class="col-12 col-md-1 arrow d-none d-md-flex">
+        →
+      </div>
+
+      <!-- Step 3 -->
+      <div class="col-12 col-md-3 step">
+        <img src="2by1.jpg" alt="Delivery">
+        <div class="step-title">Payment & Immediate Delivery</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+  <div class="spec-card">
+    <div class="spec-title">Bike Specification</div>
+    
+    <div class="row text-center mb-3">
+      <div class="col-6 col-md-3 col-lg-2 mb-3">
+        <div class="spec-label">Type</div>
+        <div class="spec-value">Scooty</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 mb-3">
+        <div class="spec-label">Color</div>
+        <div class="spec-value">White</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 mb-3">
+        <div class="spec-label">Fuel Type</div>
+        <div class="spec-value">Petrol</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 mb-3">
+        <div class="spec-label">Ignition Type</div>
+        <div class="spec-value">Kick & Self<br>Start</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 mb-3">
+        <div class="spec-label">Transmission</div>
+        <div class="spec-value">Auto</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 mb-3">
+        <div class="spec-label">Front Brake</div>
+        <div class="spec-value">Drum</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 mb-3">
+        <div class="spec-label">Rear Brake</div>
+        <div class="spec-value">Drum</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 mb-3">
+        <div class="spec-label">ABS</div>
+        <div class="spec-value">No</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 mb-3">
+        <div class="spec-label">Odometer</div>
+        <div class="spec-value">Analogue</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2 mb-3">
+        <div class="spec-label">Wheelytpe</div>
+        <div class="spec-value">Steel</div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="container">
+    <div class="row text-center text-md-start align-items-center">
+
+      <!-- Logo & Social -->
+      <div class="col-md-3 mb-4 mb-md-0">
+        <img src="logo.jpg" width="300px">
+        <p>Get in touch</p>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-2 mb-4 mb-md-0">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Buy Bike</a></li>
+          <li><a href="#">Sell Bike</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="col-md-3 mb-4 mb-md-0">
+        <h5>Categories</h5>
+        <ul>
+          <li><a href="#">Electric Two-Wheelers</a></li>
+          <li><a href="#">Motorcycles</a></li>
+          <li><a href="#">Scooters</a></li>
+          <li><a href="#">Mopeds</a></li>
+          <li><a href="#">ATV</a></li>
+          <li><a href="#">Custom Bikes</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <img src="https://pngimg.com/d/motorcycle_PNG5343.png" alt="Bike" class="bike-img mb-3">
+        <h5>Address:</h5>
+        <p><i class="bi bi-geo-alt-fill"></i> 51, Rajaji Street, GST Road, Chengalpattu - 603104</p>
+        <p><i class="bi bi-globe"></i> www.DriveRp.in</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 987 952 1234</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

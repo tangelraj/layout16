@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveRP Navbar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body{
+        width: 100%;
+    }
+    /* Logo text */
+    .navbar-brand {
+      font-family: "Poppins", sans-serif;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .navbar-brand span {
+      color: #1e3c72; /* Blue for RP */
+    }
+    .navbar-brand {
+      text-shadow: 2px 2px 6px rgba(0, 255, 255, 0.6);
+    }
+
+    /* Navbar links */
+    .nav-link {
+      font-weight: 600;
+      font-size: 18px;
+      color: #0f2a40 !important;
+    }
+    .nav-link.active {
+      color: #40bfbf !important;
+    }
+
+    /* Login button */
+    .btn-login {
+      background-color: #2c4c63;
+      color: white;
+      border-radius: 25px;
+      padding: 8px 25px;
+      font-weight: 600;
+    }
+    .btn-login:hover {
+      background-color: #193549;
+    }
+
+    /* Search icon */
+    .search-icon {
+      font-size: 22px;
+      color: #0f2a40;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+     .hero {
+      padding: 60px 0;
+    }
+    .hero h2 {
+      font-weight: bold;
+      color: #0f2a40;
+    }
+    .hero p {
+      font-size: 18px;
+      margin: 20px 0;
+      color: #333;
+    }
+    .btn-buy {
+      background-color: #2c4c63;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .btn-buy:hover {
+      background-color: #193549;
+    }
+    .bike-img {
+      width: 600px;
+      border-radius: 40px 40px 100px 100px;
+      background: linear-gradient(to bottom, rgba(255,0,150,0.3), rgba(13, 47, 71, 0.3));
+      padding: 15px;
+       
+    }
+    .info-section {
+      padding: 60px 0;
+    }
+    .info-text {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #222;
+    }
+    .info-btn {
+      background-color: #2c4c63;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 12px;
+      padding: 12px 28px;
+      margin-top: 20px;
+    }
+    .info-btn:hover {
+      background-color: #193549;
+    }
+    .info-img {
+      max-width: 100%;
+    }
+     .support-section {
+      text-align: center;
+      width: 2190px;
+    }
+
+    .arrow-box {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+    }
+
+    .arrow-shape {
+      width: 120px;
+      height: 250px; /* total height */
+      border: 12px solid #2c86c7;
+      border-bottom-width: 6px; /* 👈 bottom border smaller */
+      border-radius: 200px 200px 0 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .arrow-shape::after {
+      content: "";
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-top: 25px solid #2c86c7; /* arrow head */
+    }
+
+    .arrow-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .arrow-title {
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 20px;
+    }
+
+    .arrow-text {
+      font-size: 15px;
+      margin-top: 10px;
+    }
+    .section-title {
+      text-align: center;
+      font-weight: bold;
+      margin: 40px 0 30px;
+    }
+
+    .bike-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .bike-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .bike-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      background-image: url(image\ 83.png);
+    }
+
+    .bike-info {
+      background: #e6fbff;
+      padding: 15px;
+      text-align: left;
+    }
+
+    .bike-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .bike-details {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .bike-price {
+      font-weight: bold;
+      font-size: 20px;
+      color: #000;
+      margin-bottom: 8px;
+    }
+
+    .bike-location {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .bike-location i {
+      margin-right: 5px;
+    }
+    .stats-section {
+      background: linear-gradient(135deg, #2b5559, #49b6a5);
+      color: black;
+      border-radius: 20px;
+      padding: 40px 20px;
+      text-align: center;
+      margin: 20px auto;
+    }
+    .stats-section h2 {
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .stat-item i {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    .stat-item h4 {
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    .co1{
+        display: flex;
+        flex-direction: row;
+        gap: 400px;
+    }
+     .testimonial-card {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 30px 30px 30px rgba(5, 208, 222, 0.926);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 30px;
+      background: #fff;
+      height: 500px;
+      gap: 40px;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    .testimonial-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .testimonial-content {
+      padding: 20px;
+    }
+    .testimonial-content h5 {
+      font-weight: bold;
+      color: #004466;
+      margin-bottom: 15px;
+    }
+    .testimonial-content p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
+    .trusted-section {
+      background-color: #19445a; /* dark blue */
+      border-radius: 15px;
+      padding: 40px;
+      margin: 40px auto;
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+    .trusted-section h2 {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .trusted-text {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .trusted-img {
+      border-radius: 15px;
+      box-shadow: 8px 8px 20px rgba(0,0,0,0.4);
+      max-width: 100%;
+      height: auto;
+    }
+    @media(max-width: 768px) {
+      .trusted-section {
+        text-align: center;
+        padding: 25px;
+      }
+      .trusted-img {
+        margin-top: 20px;
+      }
+    }
+    .faq-section {
+      width: 1200px;
+      margin: 50px auto;
+      background: #e6fafa;
+      border-radius: 20px;
+      padding: 30px;
+    }
+    .accordion-item {
+      border: none;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+    .accordion-button {
+      font-weight: 600;
+      font-size: 18px;
+      background: #fff;
+      border: none;
+      box-shadow: none;
+    }
+    .accordion-button:not(.collapsed) {
+      color: #000;
+      background: #fff;
+      box-shadow: none;
+    }
+    .accordion-body {
+      background: #fff;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+     .footer {
+      background-color: #19445a;
+      color: #fff;
+      padding: 50px 20px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .footer h5 {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+    .footer ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer ul li a:hover {
+      color: #1abc9c;
+    }
+    .footer .social-icons a {
+      font-size: 28px;
+      margin-right: 15px;
+      color: #fff;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .footer .social-icons a:hover {
+      color: #1abc9c;
+      transform: scale(1.2);
+    }
+    .footer-logo {
+      font-size: 36px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      margin-bottom: 15px;
+    }
+    .footer .bike-img {
+      max-width: 250px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+        <img src="logo.jpg">
+    </a>
+
+    <!-- Navbar toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu items -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'market:index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:buy_list' %}">Buy Bike</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:sell_bike' %}">Sell Bike</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:about' %}">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:contact' %}">Contact Us</a>
+        </li>
+      </ul>
+
+      <!-- Login button + Search -->
+      <div class="d-flex align-items-center">
+        <a href="{% url 'market:login' %}" class="btn btn-login me-2">Login</a>
+        <i class="bi bi-search search-icon"></i>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="hero container d-flex align-items-center justify-content-between">
+  <!-- Left Content -->
+  <div class="col-md-6">
+    <h2>Buy or Sell Bikes the Smarter Way</h2>
+    <p>
+      Skip the hassle. Discover verified secondhand bikes at great prices or list your own in minutes. 
+      We’re here to help you ride more, spend less, and keep bikes moving — from one happy rider to the next.
+    </p>
+    <a href="#" class="btn btn-buy">Buy Now</a>
+  </div>
+
+  <!-- Right Image Slider -->
+  <div class="col-md-6 text-center">
+    <img id="bikeImage" src="pleasure-plus-1-14-67a1f47151b37-removebg-preview (1).png" class="bike-img" alt="Bike">
+  </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Bike images array
+  const bikeImages = ["pleasure-plus-1-14-67a1f47151b37-removebg-preview (1).png", "bike-png-image-pngfre-42-1024x704.png", "png-clipart-car-hero-honda-splendor-hero-motocorp-hero-super-splendor-motorcycle-hero-karizma-zmr-bicycle-car-thumbnail-removebg-preview.png", "Honda-Dio-Mat-Axis-Grey-Metallic-1-removebg-preview.png"];
+  let index = 0;
+
+  function changeBikeImage() {
+    index = (index + 1) % bikeImages.length;
+    document.getElementById("bikeImage").src = bikeImages[index];
+  }
+
+  // Change image every 5 seconds
+  setInterval(changeBikeImage, 5000);
+</script>
+<!-- Section -->
+<section class="info-section container">
+  <div class="row align-items-center">
+    <!-- Left Image -->
+    <div class="col-md-6 text-center">
+      <img src="image 74.png" alt="Scooter Rider" class="info-img">
+    </div>
+    <!-- Right Content -->
+    <div class="col-md-6">
+      <p class="info-text">
+        Buying and selling secondhand bikes isn’t just a smart financial decision — it’s a sustainable one. 
+        When you buy a pre-owned bike, you save money while gaining access to a wider variety of models, 
+        often already assembled and ready to ride. It's an eco-friendly choice that helps reduce 
+        manufacturing waste and supports a circular economy. On the other hand, selling your bike 
+        allows you to earn extra cash, declutter your space, and pass on a reliable ride to someone new.
+      </p>
+      <a href="#" class="btn info-btn">Read More</a>
+    </div>
+  </div>
+</section>
+ <div class="container support-section">
+    <h2 class="mb-5">Get the Support You Needs</h2>
+    <div class="row justify-content-center">
+      
+      <!-- 24/7 Support -->
+      <div class="col-md arrow-box">
+        <div class="arrow-shape">
+          <img src="mkhan08523f_1738502667_726.jpg" alt="24/7" class="arrow-img">
+        </div>
+        <h4 class="arrow-title">24/7 Support</h4>
+        <p class="arrow-text">Our support team is available 24/7 to assist you. Fast, friendly, and reliable help is just a message away.</p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-3 arrow-box">
+        <div class="arrow-shape">
+          <img src="image 75.png" alt="Social Media" class="arrow-img">
+        </div>
+        <h4 class="arrow-title">Social Media</h4>
+        <p class="arrow-text">Whether you're buying, selling, or just love bikes — there’s a place for you in our online community.</p>
+      </div>
+
+      <!-- Blogs -->
+      <div class="col-md-3 arrow-box">
+        <div class="arrow-shape">
+          <img src="illustration-graphic-cartoon-character-of-blog-vector.jpg" alt="Blogs" class="arrow-img">
+        </div>
+        <h4 class="arrow-title">Blogs</h4>
+        <p class="arrow-text">From guides on buying and selling secondhand bikes, cycling safety, and eco-friendly living, we cover it all.</p>
+      </div>
+
+      <!-- 100% Security -->
+      <div class="col-md-3 arrow-box">
+        <div class="arrow-shape">
+          <img src="two-smartphones-transferring-money-to-each-other-free-vector.jpg" alt="Security" class="arrow-img">
+        </div>
+        <h4 class="arrow-title">100% Money Security</h4>
+        <p class="arrow-text">No scams, no surprises — just a smooth, trustworthy experience every time.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h2 class="section-title">Our Few Bikes</h2>
+    <div class="row g-4">
+
+      <!-- Bike 1 -->
+      <div class="col-md-4">
+        <div class="card bike-card">
+          <a href="{% url 'market:buy1' %}"><img src="image 88.png" class="card-img-top" alt="Bike 1"></a>
+          <div class="bike-info">
+            <div class="bike-title">2023 | Yamaha MT 15 | 150CC BS6</div>
+            <div class="bike-details">⏱ 8700 Km · Petrol · 1st Owner</div>
+            <div class="bike-price">₹ 1,15,000</div>
+            <div class="bike-location"><i class="bi bi-geo-alt-fill"></i> Thirunelveli</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bike 2 -->
+      <div class="col-md-4">
+        <div class="card bike-card">
+         <a href="{% url 'market:buy1' %}"><img src="png-clipart-suzuki-gixxer-sf-scooter-suzuki-access-125-electric-motorcycle-scooter-car-thumbnail-removebg-preview.png" class="card-img-top" alt="Bike 2">
+          </a><div class="bike-info">
+            <div class="bike-title">2013 | Susuki Access | 125 CC</div>
+            <div class="bike-details">⏱ 2600 Km · Petrol · 2nd Owner</div>
+            <div class="bike-price">₹ 30,000</div>
+            <div class="bike-location"><i class="bi bi-geo-alt-fill"></i> Kanchipuram</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bike 3 -->
+      <div class="col-md-4">
+        <div class="card bike-card">
+          <a href="{% url 'market:buy1' %}"><img src="image_88__2_-removebg-preview.png" class="card-img-top" alt="Bike 3">
+         </a> <div class="bike-info">
+            <div class="bike-title">2020 | Royal Enfield - Himalayan | 410CC FTS</div>
+            <div class="bike-details">⏱ 23700 Km · Petrol · 1st Owner</div>
+            <div class="bike-price">₹ 2,50,000</div>
+            <div class="bike-location"><i class="bi bi-geo-alt-fill"></i> Karur</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="container">
+  <div class="stats-section">
+    <div class="co1">
+    <h2>Over 15000+ Satisfied Customers</h2>
+    <img src="logo.jpg" width="200px" height="80px">
+    </div>
+    <div class="row text-center">
+      
+      <!-- Bike Purchased -->
+      <div class="col-md-4 stat-item">
+        <i class="bi bi-bicycle"></i>
+        <h4>5000+</h4>
+        <p>Bike Purchased</p>
+      </div>
+
+      <!-- Average Rating -->
+      <div class="col-md-4 stat-item">
+        <i class="bi bi-star-fill"></i>
+        <h4>4.5</h4>
+        <p>Average Rating</p>
+      </div>
+
+      <!-- Years Experience -->
+      <div class="col-md-4 stat-item">
+        <i class="bi bi-award-fill"></i>
+        <h4>25+</h4>
+        <p>Years Experience</p>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Testimonials Title -->
+  <div class="text-center mt-5">
+    <h3 style="font-size: 50px;"><strong>Real Stories From our Happy Customer</strong></h3>
+    <p style="font-weight: bold; font-size: 30px;" class="text-muted">Their words drive us forward and inspire others to join the movement.</p>
+  </div>
+</div>
+<div class="container py-5">
+  <div class="row text-center mb-4">
+    <h2><strong>Real Stories From Our Happy Customers</strong></h2>
+    <p class="text-muted">Their words drive us forward and inspire others to join the movement.</p>
+  </div>
+
+  <div class="row">
+    <!-- Card 1 -->
+    <div class="col-md-4">
+      <div class="testimonial-card">
+        <img src="360_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg" alt="Customer">
+        <div class="testimonial-content">
+          <h5>Sarah M. – First-Time Buyer</h5>
+          <p>“I was nervous about buying a secondhand bike online, but the whole process was smooth and secure. The bike was exactly as described, and the support team was super helpful. I saved money and found a great ride!”</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4">
+      <div class="testimonial-card">
+        <img src="istockphoto-1392583255-612x612.jpg" alt="Customer">
+        <div class="testimonial-content">
+          <h5>James R. – Seller</h5>
+          <p>“I had an old mountain bike collecting dust. Listing it took minutes, and it sold within a few days. The payment process was safe and fast — I’ll definitely be using this platform again.”</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4">
+      <div class="testimonial-card">
+        <img src="bike1.jpg" alt="Customer">
+        <div class="testimonial-content">
+          <h5>Priya K. – Daily Commuter</h5>
+          <p>“This site makes secondhand feel first-class. I found a quality commuter bike that fits my lifestyle and budget. Plus, it feels good to buy sustainably.”</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="trusted-section row align-items-center">
+    
+    <!-- Text -->
+    <div class="col-md-7">
+      <h2 class="text-center text-md-start">Trusted by Riders Like You</h2>
+      <p class="trusted-text text-center text-md-start">
+        From smooth sales to great secondhand finds, our community loves the ease, 
+        security, and savings we offer. Real riders share real stories — and they 
+        keep coming back for more.
+      </p>
+    </div>
+
+    <!-- Image -->
+    <div class="col-md-5 text-center">
+      <img src="bike2.jpg" alt="Rider" class="trusted-img">
+    </div>
+
+  </div>
+</div>
+<h1 style="text-align: center;">Frequently Asked Questions</h1>
+<div class="faq-section">
+  <div class="accordion" id="faqAccordion">
+
+    <!-- Q1 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+          1. What happens if a transaction goes wrong?
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          We provide dispute resolution support and ensure fair outcomes for both buyers and sellers.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+          2. Are there any restrictions on what I can sell?
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes, items must meet our safety and community guidelines. Illegal or unsafe products are not allowed.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+          3. What if the bike I buy isn’t as described?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          We offer buyer protection and dispute resolution to ensure fair outcomes and peace of mind.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+          4. How do I know if a bike is in good condition?
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Sellers are required to upload clear photos and descriptions. We also recommend requesting maintenance history before purchasing.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFive">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+          5. Can I delete my listing after posting?
+        </button>
+      </h2>
+      <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes, you can remove your listing anytime from your dashboard under “My Listings.”
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingSix">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+          6. Can I sell bike parts or accessories?
+        </button>
+      </h2>
+      <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes, you can list bike parts and accessories as long as they meet our safety and quality standards.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="container">
+    <div class="row text-center text-md-start align-items-center">
+
+      <!-- Logo & Social -->
+      <div class="col-md-3 mb-4 mb-md-0">
+        <img src="logo.jpg" width="300px">
+        <p>Get in touch</p>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-2 mb-4 mb-md-0">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Buy Bike</a></li>
+          <li><a href="#">Sell Bike</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="col-md-3 mb-4 mb-md-0">
+        <h5>Categories</h5>
+        <ul>
+          <li><a href="#">Electric Two-Wheelers</a></li>
+          <li><a href="#">Motorcycles</a></li>
+          <li><a href="#">Scooters</a></li>
+          <li><a href="#">Mopeds</a></li>
+          <li><a href="#">ATV</a></li>
+          <li><a href="#">Custom Bikes</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <img src="https://pngimg.com/d/motorcycle_PNG5343.png" alt="Bike" class="bike-img mb-3">
+        <h5>Address:</h5>
+        <p><i class="bi bi-geo-alt-fill"></i> 51, Rajaji Street, GST Road, Chengalpattu - 603104</p>
+        <p><i class="bi bi-globe"></i> www.DriveRp.in</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 987 952 1234</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

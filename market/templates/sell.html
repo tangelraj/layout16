@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body{
+        width: 100%;
+    }
+    /* Logo text */
+    .navbar-brand {
+      font-family: "Poppins", sans-serif;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .navbar-brand span {
+      color: #1e3c72; /* Blue for RP */
+    }
+    .navbar-brand {
+      text-shadow: 2px 2px 6px rgba(0, 255, 255, 0.6);
+    }
+
+    /* Navbar links */
+    .nav-link {
+      font-weight: 600;
+      font-size: 18px;
+      color: #0f2a40 !important;
+    }
+    .nav-link.active {
+      color: #40bfbf !important;
+    }
+
+    /* Login button */
+    .btn-login {
+      background-color: #2c4c63;
+      color: white;
+      border-radius: 25px;
+      padding: 8px 25px;
+      font-weight: 600;
+    }
+    .btn-login:hover {
+      background-color: #193549;
+    }
+
+    /* Search icon */
+    .search-icon {
+      font-size: 22px;
+      color: #0f2a40;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+    .hero-section {
+      background: url("image 80.png") no-repeat center center/cover;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px;
+      color: black;
+      position: relative;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      font-size: 40px;
+      font-weight: bold;
+      width: 600px;
+      text-align: center;
+      text-shadow: 5px 5px 5px rgba(69, 179, 199, 0.6);
+    }
+    .hero-text span {
+      display: block;
+      margin-bottom: 10px;
+    }
+     .banner {
+      background: url("image 82.png") no-repeat center center/cover;
+      height: 850px;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 20px;
+      border-style: solid;
+      border-width: 20px;
+      border-color: rgb(27, 56, 65);
+    }
+    .banner-overlay {
+      background: rgba(0,0,0,0.4);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: center;
+      padding-top: 20px;
+    }
+    .form-box {
+      background: #fff;
+      padding: 15px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 10px;
+      margin: 20px auto;
+      max-width: 95%;
+      font-size: 30px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+    }
+    .dropdown button {
+      width: 150px;
+      border-radius: 10px;
+    }
+    .btn-price {
+      background: #ccc;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+     .how-it-works {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .how-it-works h2 {
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    .step {
+      text-align: center;
+      padding: 20px;
+    }
+    .step img {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+    .arrow {
+      font-size: 40px;
+      font-weight: bold;
+      margin: auto;
+      color: #000;
+    }
+    .footer {
+      background-color: #19445a;
+      color: #fff;
+      padding: 50px 20px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .footer h5 {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+    .footer ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer ul li a:hover {
+      color: #1abc9c;
+    }
+    .footer .social-icons a {
+      font-size: 28px;
+      margin-right: 15px;
+      color: #fff;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .footer .social-icons a:hover {
+      color: #1abc9c;
+      transform: scale(1.2);
+    }
+    .footer-logo {
+      font-size: 36px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      margin-bottom: 15px;
+    }
+    .footer .bike-img {
+      max-width: 250px;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+        <img src="logo.jpg">
+    </a>
+
+    <!-- Navbar toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu items -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+       <li class="nav-item">
+          <a class="nav-link active" href="{% url 'market:index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:buy_list' %}">Buy Bike</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:sell_bike' %}">Sell Bike</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:about' %}">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:contact' %}">Contact Us</a>
+        </li>
+      </ul>
+
+      <!-- Login button + Search -->
+      <div class="d-flex align-items-center">
+        <a href="{% url 'market:login' %}" class="btn btn-login me-2">Login</a>
+        <i class="bi bi-search search-icon"></i>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="hero-section">
+  <div class="hero-overlay"></div>
+  
+  <!-- Text on Left -->
+  <div class="hero-text">
+    <span>"Every bike has another</span>
+    <span>adventure left in it.</span>
+    <span>Pass it on to the next rider."</span>
+  </div>
+</div>
+<br><br>
+<div class="banner">
+  <div class="banner-overlay"></div>
+  <div class="banner-content">
+    <h2>Sell Fast By <img src="logo.jpg" height="60px" width="200px"></h2>
+    <br><br>
+    <p style="font-size: 30px; color: white; font-weight: bold;">Enter Your Details</p>
+
+    <!-- Form with dropdowns -->
+    <div class="form-box">
+
+      <!-- Brand -->
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Brand Name
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">TVS</a></li>
+          <li><a class="dropdown-item" href="#">Vespa</a></li>
+          <li><a class="dropdown-item" href="#">Yamaha</a></li>
+          <li><a class="dropdown-item" href="#">Hero Honda</a></li>
+          <li><a class="dropdown-item" href="#">Royal Enfield</a></li>
+          <li><a class="dropdown-item" href="#">Suzuki</a></li>
+          <li><a class="dropdown-item" href="#">KTM</a></li>
+          <li><a class="dropdown-item" href="#">Bajaj</a></li>
+          <li><a class="dropdown-item" href="#">Hero</a></li>
+        </ul>
+      </div>
+
+      <!-- Model -->
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Model
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Aventure</a></li>
+          <li><a class="dropdown-item" href="#">Boxer</a></li>
+          <li><a class="dropdown-item" href="#">Chetak</a></li>
+          <li><a class="dropdown-item" href="#">CT100</a></li>
+          <li><a class="dropdown-item" href="#">CT!!0</a></li>
+          <li><a class="dropdown-item" href="#">Discover</a></li>
+          <li><a class="dropdown-item" href="#">Discover M</a></li>
+          <li><a class="dropdown-item" href="#">Discover F</a></li>
+          <li><a class="dropdown-item" href="#">Platina</a></li>
+          <li><a class="dropdown-item" href="#">Pulsar</a></li>
+        </ul>
+      </div>
+
+      <!-- Variant -->
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Variant
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">125CC Spilit seat disc BS6</a></li>
+          <li><a class="dropdown-item" href="#">150CC</a></li>
+          <li><a class="dropdown-item" href="#">150CC ABS</a></li>
+          <li><a class="dropdown-item" href="#">150CC Neon</a></li>
+          <li><a class="dropdown-item" href="#">150CC Classic</a></li>
+          <li><a class="dropdown-item" href="#">160CC Neon ABS</a></li>
+          <li><a class="dropdown-item" href="#">ABS 220F</a></li>
+        </ul>
+      </div>
+
+      <!-- Year -->
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Year
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">2018</a></li>
+          <li><a class="dropdown-item" href="#">2019</a></li>
+          <li><a class="dropdown-item" href="#">2020</a></li>
+          <li><a class="dropdown-item" href="#">2021</a></li>
+          <li><a class="dropdown-item" href="#">2022</a></li>
+        </ul>
+      </div>
+
+      <!-- KMs Driven -->
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          KMs Driven
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">1 - 5,000</a></li>
+          <li><a class="dropdown-item" href="#">5,001 - 10,000</a></li>
+          <li><a class="dropdown-item" href="#">10,001 - 20,000</a></li>
+          <li><a class="dropdown-item" href="#">20,000 - 50,000</a></li>
+          <li><a class="dropdown-item" href="#">50,001 - 100,000</a></li>
+          <li><a class="dropdown-item" href="#">100,001 - 150,000</a></li>
+          <li><a class="dropdown-item" href="#">15,001 - 200,000</a></li>
+        </ul>
+      </div>
+
+      <!-- Owner -->
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Owner
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">1st Owner</a></li>
+          <li><a class="dropdown-item" href="#">2nd Owner</a></li>
+          <li><a class="dropdown-item" href="#">3rd Owner</a></li>
+          <li><a class="dropdown-item" href="#">4th Owner</a></li>
+          <li><a class="dropdown-item" href="#">5th Owner</a></li>
+        </ul>
+      </div>
+
+      <!-- Submit -->
+      <button class="btn-price">Get Price</button>
+    </div>
+  </div><br><br><br><br><br><br><br><br><br><br><br><br>
+  <a style="text-decoration: none; font-size: 30px; text-align: center; width: 800px; margin-left: 30%; color: black; height: 40px; background-color: white;" href="contactus.html">Can't find what you're looking for you? Click Here</a>
+
+</div>
+
+<section class="how-it-works">
+  <div class="container">
+    <h2>How it Works</h2>
+    <div class="row align-items-center justify-content-center">
+      
+      <!-- Step 1 -->
+      <div class="col-md-3 step">
+        <img src="confident-man-considering-a-high-end-motorcycle-purchase-on-showroom-floor-reflecting-male-spending-behavior-and-lifestyle-investment-decisions-vector.jpg" alt="Check Bike Valuation">
+        <h5>Check Bike Valuation</h5>
+      </div>
+
+      <!-- Arrow -->
+      <div class="col-md-1 arrow">&lt;</div>
+
+      <!-- Step 2 -->
+      <div class="col-md-3 step">
+        <img src="motorcycle-maintenance-with-digital-diagnostics-by-two-technicians-in-a-workshop-using-modern-tools-and-laptop-on-a-lifting-platform-isometric-vector.jpg" alt="Doorstep Inspection">
+        <h5>Doorstep Inspection</h5>
+      </div>
+
+      <!-- Arrow -->
+      <div class="col-md-1 arrow">&lt;</div>
+
+      <!-- Step 3 -->
+      <div class="col-md-3 step">
+        <img src="1 sell.jpg" alt="Instant Payment">
+        <h5>Instant Payment</h5>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="container">
+    <div class="row text-center text-md-start align-items-center">
+
+      <!-- Logo & Social -->
+      <div class="col-md-3 mb-4 mb-md-0">
+        <img src="logo.jpg" width="300px">
+        <p>Get in touch</p>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-2 mb-4 mb-md-0">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Buy Bike</a></li>
+          <li><a href="#">Sell Bike</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="col-md-3 mb-4 mb-md-0">
+        <h5>Categories</h5>
+        <ul>
+          <li><a href="#">Electric Two-Wheelers</a></li>
+          <li><a href="#">Motorcycles</a></li>
+          <li><a href="#">Scooters</a></li>
+          <li><a href="#">Mopeds</a></li>
+          <li><a href="#">ATV</a></li>
+          <li><a href="#">Custom Bikes</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <img src="https://pngimg.com/d/motorcycle_PNG5343.png" alt="Bike" class="bike-img mb-3">
+        <h5>Address:</h5>
+        <p><i class="bi bi-geo-alt-fill"></i> 51, Rajaji Street, GST Road, Chengalpattu - 603104</p>
+        <p><i class="bi bi-globe"></i> www.DriveRp.in</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 987 952 1234</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

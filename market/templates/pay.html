@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body{
+        width: 100%;
+    }
+    /* Logo text */
+    .navbar-brand {
+      font-family: "Poppins", sans-serif;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .navbar-brand span {
+      color: #1e3c72; /* Blue for RP */
+    }
+    .navbar-brand {
+      text-shadow: 2px 2px 6px rgba(0, 255, 255, 0.6);
+    }
+
+    /* Navbar links */
+    .nav-link {
+      font-weight: 600;
+      font-size: 18px;
+      color: #0f2a40 !important;
+    }
+    .nav-link.active {
+      color: #40bfbf !important;
+    }
+
+    /* Login button */
+    .btn-login {
+      background-color: #2c4c63;
+      color: white;
+      border-radius: 25px;
+      padding: 8px 25px;
+      font-weight: 600;
+    }
+    .btn-login:hover {
+      background-color: #193549;
+    }
+
+    /* Search icon */
+    .search-icon {
+      font-size: 22px;
+      color: #0f2a40;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+     .payment-container {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      border-style: solid;
+      border-color: #0c4a73;
+      font-size: 30px;
+    }
+
+    .payment-left, .payment-right {
+      width: 48%;
+    }
+
+    .payment-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .payment-option {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .payment-option input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    .payment-option img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    .total-price {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .confirm-btn {
+      background-color: #145DA0;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .confirm-btn:hover {
+      background-color: #0c4a73;
+    }
+    /* Booking Confirmed Section */
+    .confirmation-container {
+      display: none;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 30px;
+      width: 700px;
+      height: 400px;
+      margin-left: 30%;
+      border-style: solid;
+      border-color: #0c4a73;
+    }
+
+    .confirmation-container img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .confirmation-container .confirmation-title {
+      font-weight: 700;
+      font-size: 30px;
+    }
+
+    .confirmation-container .confirmation-message {
+      font-size: 1.1rem;
+      color: #145DA0;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+        <img src="logo.jpg">
+    </a>
+
+    <!-- Navbar toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu items -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'market:index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:buy_list' %}">Buy Bike</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:sell_bike' %}">Sell Bike</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:about' %}">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:contact' %}">Contact Us</a>
+        </li>
+      </ul>
+
+      <!-- Login button + Search -->
+      <div class="d-flex align-items-center">
+        <a href="{% url 'market:login' %}" class="btn btn-login me-2">Login</a>
+        <i class="bi bi-search search-icon"></i>
+      </div>
+    </div>
+  </div>
+</nav>
+<br><br>
+<div class="container">
+  <div class="payment-container">
+    <!-- Left Section: Payment Options -->
+    <div class="payment-left">
+      <div class="payment-title">Select Payment Method</div>
+
+      <div class="payment-option">
+        <input type="radio" id="credit-debit" name="payment-method" />
+        <label for="credit-debit">Credit Card/ Debit Card</label>
+      </div>
+
+      <div class="payment-option">
+        <input type="radio" id="net-banking" name="payment-method" />
+        <label for="net-banking">NetBanking</label>
+      </div>
+
+      <div class="payment-option">
+        <input type="radio" id="gpay" name="payment-method" />
+        <img src="1pay.jpg" alt="GPay" />
+        <label for="gpay">GPay</label>
+      </div>
+
+      <div class="payment-option">
+        <input type="radio" id="paytm" name="payment-method" />
+        <img src="2pay.jpg" alt="Paytm" />
+        <label for="paytm">Paytm</label>
+      </div>
+
+      <div class="payment-option">
+        <input type="radio" id="phonepay" name="payment-method" />
+        <img src="3pay.jpg" alt="PhonePay" />
+        <label for="phonepay">PhonePay</label>
+      </div>
+
+      <div class="payment-option">
+        <input type="radio" id="amazonpay" name="payment-method" />
+        <img src="4pay.jpg" alt="Amazon Pay" />
+        <label for="amazonpay">Amazon Pay</label>
+      </div>
+    </div>
+
+    <!-- Right Section: Pricing Details -->
+    <div class="payment-right">
+      <div class="payment-title">Order Summary</div>
+
+      <div class="d-flex justify-content-between">
+        <div>SubTotal</div>
+        <div>Rs.3000.00</div>
+      </div>
+<br><br>
+      <div class="d-flex justify-content-between">
+        <div>GST Tax</div>
+        <div>Rs.1000.00</div>
+      </div>
+<br><br>
+      <div class="d-flex justify-content-between">
+        <div>Test Drive</div>
+        <div>Rs.1000.00</div>
+      </div>
+<br><br>
+      <div class="d-flex justify-content-between total-price">
+        <div>Grand Total</div>
+        <div>Rs.32000.00</div>
+      </div>
+<br><br>
+      <button class="confirm-btn" onclick="showConfirmation()">Confirm Payment</button>
+    </div>
+  </div>
+</div>
+ <!-- Booking Confirmed Section -->
+  <div class="confirmation-container" id="confirmationMessage">
+    <img src="bike-biker.gif" alt="Booking Confirmed" /><br><br>
+    <div class="confirmation-title">Booking Confirmed</div><br><br>
+    <div class="confirmation-message">The Bike is Your Enjoy Your Journey</div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Function to show the confirmation message
+  function showConfirmation() {
+    document.querySelector('.payment-container').style.display = 'none'; // Hide the payment section
+    document.getElementById('confirmationMessage').style.display = 'block'; // Show confirmation section
+  }
+</script>
+</body>
+</html>

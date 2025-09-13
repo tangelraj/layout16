@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body{
+        width: 100%;
+    }
+    /* Logo text */
+    .navbar-brand {
+      font-family: "Poppins", sans-serif;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .navbar-brand span {
+      color: #1e3c72; /* Blue for RP */
+    }
+    .navbar-brand {
+      text-shadow: 2px 2px 6px rgba(0, 255, 255, 0.6);
+    }
+
+    /* Navbar links */
+    .nav-link {
+      font-weight: 600;
+      font-size: 18px;
+      color: #0f2a40 !important;
+    }
+    .nav-link.active {
+      color: #40bfbf !important;
+    }
+
+    /* Login button */
+    .btn-login {
+      background-color: #2c4c63;
+      color: white;
+      border-radius: 25px;
+      padding: 8px 25px;
+      font-weight: 600;
+    }
+    .btn-login:hover {
+      background-color: #193549;
+    }
+
+    /* Search icon */
+    .search-icon {
+      font-size: 22px;
+      color: #0f2a40;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+    .contact-section {
+      padding: 60px 0;
+    }
+    .contact-form .form-control {
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .map-container {
+      width: 100%;
+      height: 400px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    .address-box {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .footer {
+      background-color: #19445a;
+      color: #fff;
+      padding: 50px 20px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .footer h5 {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+    .footer ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer ul li a:hover {
+      color: #1abc9c;
+    }
+    .footer .social-icons a {
+      font-size: 28px;
+      margin-right: 15px;
+      color: #fff;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .footer .social-icons a:hover {
+      color: #1abc9c;
+      transform: scale(1.2);
+    }
+    .footer-logo {
+      font-size: 36px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      margin-bottom: 15px;
+    }
+    .footer .bike-img {
+      max-width: 250px;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+        <img src="logo.jpg">
+    </a>
+
+    <!-- Navbar toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu items -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'market:index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:buy_list' %}">Buy Bike</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:sell_bike' %}">Sell Bike</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:about' %}">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'market:contact' %}">Contact Us</a>
+        </li>
+      </ul>
+
+      <!-- Login button + Search -->
+      <div class="d-flex align-items-center">
+        <a href="{% url 'market:login' %}" class="btn btn-login me-2">Login</a>
+        <i class="bi bi-search search-icon"></i>
+      </div>
+    </div>
+  </div>
+</nav>
+<h1 style="text-align: center;">Contact Us</h1>
+<div class="container contact-section">
+  <div class="row">
+    
+    <!-- Contact Form -->
+    <div class="col-lg-6 col-md-12 contact-form">
+      <form>
+        <input type="text" class="form-control" placeholder="Name" required>
+        <input type="email" class="form-control" placeholder="E-mail Address" required>
+        <input type="tel" class="form-control" placeholder="Phone Number">
+        
+        <select class="form-control">
+          <option>Reason to Contact</option>
+          <option>General Enquiry</option>
+          <option>Buy a Bike</option>
+          <option>Sell a Bike</option>
+          <option>Exchange a bike</option>
+          <option>RTO Office</option>
+          <option>Other</option>
+        </select>
+        
+        <select class="form-control">
+          <option>How did you find out about us?</option>
+          <option>OLX</option>
+          <option>Facebook</option>
+          <option>Instagram</option>
+          <option>Youtube</option>
+          <option>Website</option>
+          <option>Walk-in</option>
+        </select>
+        
+        <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+        
+        <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Map & Address -->
+    <div class="col-lg-6 col-md-12">
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.4395302855907!2d151.207!3d-33.8688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae3e4dfd0d0f%3A0x5045675218ceed0!2sSydney!5e0!3m2!1sen!2sau!4v1638897600000!5m2!1sen!2sau" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="address-box">
+        <h5><i class="bi bi-geo-alt-fill"></i> Address:</h5>
+        <p>51, Rajaji Street,<br> 51, Rajaji Street,<br> GST Road,<br> Chengalpattu - 603104<br>TamilNadu,India.<br><i class="bi bi-globe"></i> www.DriveRp.in<br>
+        <i class="bi bi-telephone-fill"></i> +91 987 952 1234</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="container">
+    <div class="row text-center text-md-start align-items-center">
+
+      <!-- Logo & Social -->
+      <div class="col-md-3 mb-4 mb-md-0">
+        <img src="logo.jpg" width="300px">
+        <p>Get in touch</p>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-2 mb-4 mb-md-0">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Buy Bike</a></li>
+          <li><a href="#">Sell Bike</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="col-md-3 mb-4 mb-md-0">
+        <h5>Categories</h5>
+        <ul>
+          <li><a href="#">Electric Two-Wheelers</a></li>
+          <li><a href="#">Motorcycles</a></li>
+          <li><a href="#">Scooters</a></li>
+          <li><a href="#">Mopeds</a></li>
+          <li><a href="#">ATV</a></li>
+          <li><a href="#">Custom Bikes</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <img src="https://pngimg.com/d/motorcycle_PNG5343.png" alt="Bike" class="bike-img mb-3">
+        <h5>Address:</h5>
+        <p><i class="bi bi-geo-alt-fill"></i> 51, Rajaji Street, GST Road, Chengalpattu - 603104</p>
+        <p><i class="bi bi-globe"></i> www.DriveRp.in</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 987 952 1234</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+</body>
+</html>
